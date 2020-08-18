@@ -39,8 +39,13 @@ int main() {
 			out << pixel_col[y][x].r << std::endl;
 			out << pixel_col[y][x].g << std::endl;
 			out << pixel_col[y][x].b << std::endl;
+
+			delete ray;
 		}
 	}
+
+	delete white;
+	delete sphere;
 
 	return 0;
 }
