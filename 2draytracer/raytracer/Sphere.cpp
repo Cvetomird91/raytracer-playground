@@ -2,17 +2,17 @@
 #include "Vector.h"
 #include <cmath>
 
-Sphere::Sphere(Vector c, double r) {
-	this->c = c;
-	this->r = r;
+Sphere::Sphere(Vector center, double radius) {
+	this->center = center;
+	this->radius = radius;
 }
 
 bool Sphere::intersect(Ray ray, double& t) {
 	Vector o = ray.o;
 	Vector d = ray.d;
-	Vector oc = o - c;
+	Vector oc = o - center;
 	double b = 2 * Vector::dot(oc, d);
-	double c = Vector::dot(oc, oc) - r * r;
+	double c = Vector::dot(oc, oc) - radius * radius;
 	double disc = b * b - 4 * c;
 
 	if (disc < 0) return false;
